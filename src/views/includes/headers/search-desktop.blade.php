@@ -1,20 +1,20 @@
 @if($action)
     <li
-        x-data="{ ...searchModal() }"
+        x-data="searchModal"
         x-on:keydown.window.tab="handleForwardTab"
         x-on:keydown.window.shift.tab="handleBackwardTab"
         x-on:keydown.window.escape="handleEscape"
     >
         <button
-            class="
-                p-2 text-sm transition-colors focus:outline-none focus:ring focus:ring-blue-500
-                @if($dark)
-                    text-gray-50 hover:bg-gray-700 py-4
-                @else
-                    text-gray-800 hover:text-gray-900
-                @endif
-            "
-            x-on:click="toggle"
+            @click="toggle"
+            aria-label="Search"
+            class="p-2 text-sm rounded-sm transition-colors
+            @if($dark)
+                text-white
+            @else
+                text-gray-800
+            @endif
+            hover:bg-gray-100 hover:text-gray-800 focus:outline-none focus:ring focus:ring-blue-500"
         >
             <svg class="w-4 h-4" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
         </button>
