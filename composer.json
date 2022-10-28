@@ -5,13 +5,13 @@
         "northeastern-web",
         "support"
     ],
-    "homepage": "https://github.com/northeastern-web/kernl-ui-blade",
+    "homepage": "https://github.com/ITS-Digital-Technology/kernl-ui-blade",
     "license": "MIT",
     "authors": [
         {
             "name": "Northeastern Web Solutions",
             "email": "websolutions@northeastern.edu",
-            "homepage": "https://northeastern.edu",
+            "homepage": "https://its.northeastern.edu",
             "role": "Developer"
         }
     ],
