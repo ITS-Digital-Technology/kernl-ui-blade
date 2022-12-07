@@ -24,7 +24,6 @@
         x-transition:leave-start="opacity-100 max-h-screen"
         x-transition:leave-end="opacity-0 max-h-0 overflow-hidden"
         class="h-full overflow-y-auto focus:outline-none focus:ring focus:ring-blue-500"
-        tabindex="0"
     >
         <div class="px-10 py-8">
             {!! $slot !!}
