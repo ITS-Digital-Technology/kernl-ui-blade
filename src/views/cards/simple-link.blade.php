@@ -11,7 +11,7 @@
                 {{ $title }}
             </h2>
             <p class="{{ $bodyClasses() }}">
-                {{ $body }}
+                {!! $body !!}
             </p>
         @endif
     </div>
