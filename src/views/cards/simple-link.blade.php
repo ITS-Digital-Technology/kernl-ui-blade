@@ -10,9 +10,9 @@
             <h2 class="{{ $titleClasses() }}">
                 {{ $title }}
             </h2>
-            <p class="{{ $bodyClasses() }}">
+            <div class="{{ $bodyClasses() }}">
                 {!! $body !!}
-            </p>
+            </div>
         @endif
     </div>
 
