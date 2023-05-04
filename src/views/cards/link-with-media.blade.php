@@ -38,7 +38,7 @@
                     {{ $title }}
                 </h2>
                 <p class="{{ $messageClasses() }}">
-                    {{ $body }}
+                    {!! $body !!}
                 </p>
             @endif
         </div>
