@@ -71,7 +71,7 @@ class SimpleLink extends Component
                 return $classes->push('text-white', 'bg-red-600', 'hover:bg-red-800');
             })
             ->join(' ')
-            ;
+        ;
     }
 
     public function titleClasses()
@@ -84,7 +84,7 @@ class SimpleLink extends Component
                 return $classes->merge(['text-sm']);
             })
             ->join(' ')
-            ;
+        ;
     }
 
     public function bodyClasses()
@@ -101,7 +101,7 @@ class SimpleLink extends Component
                 return $classes->merge(['text-xs']);
             })
             ->join(' ')
-            ;
+        ;
     }
 
     public function render()

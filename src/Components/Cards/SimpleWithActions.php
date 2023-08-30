@@ -69,7 +69,7 @@ class SimpleWithActions extends Component
                 return $classes->push('text-white', 'bg-red-600');
             })
             ->join(' ')
-            ;
+        ;
     }
 
     public function titleClasses()
@@ -82,7 +82,7 @@ class SimpleWithActions extends Component
                 return $classes->push('text-sm');
             })
             ->join(' ')
-            ;
+        ;
     }
 
     public function bodyClasses()
