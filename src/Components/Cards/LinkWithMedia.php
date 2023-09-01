@@ -77,7 +77,7 @@ class LinkWithMedia extends Component
                 return $classes->push('flex', 'flex-col', 'lg:flex-row-reverse');
             })
             ->join(' ')
-            ;
+        ;
     }
 
     public function titleClasses()
@@ -97,7 +97,7 @@ class LinkWithMedia extends Component
                 ]);
             })
             ->join(' ')
-            ;
+        ;
     }
 
     public function bodyClasses()
@@ -114,7 +114,7 @@ class LinkWithMedia extends Component
                 return $classes->merge(['py-8']);
             })
             ->join(' ')
-            ;
+        ;
     }
 
     public function preHeaderClasses()
@@ -135,7 +135,7 @@ class LinkWithMedia extends Component
                 ]);
             })
             ->join(' ')
-            ;
+        ;
     }
 
 
@@ -157,7 +157,7 @@ class LinkWithMedia extends Component
                 ]);
             })
             ->join(' ')
-            ;
+        ;
     }
 
     public function imageOuterImageContainerClasses()
@@ -203,7 +203,7 @@ class LinkWithMedia extends Component
                 return $classes->push('aspect-w-16', 'aspect-h-9');
             })
             ->join(' ')
-            ;
+        ;
     }
 
     public function footerClasses()
@@ -228,7 +228,7 @@ class LinkWithMedia extends Component
                 ]);
             })
             ->join(' ')
-            ;
+        ;
     }
 
     public function footerTextClasses()
@@ -252,7 +252,7 @@ class LinkWithMedia extends Component
                 ]);
             })
             ->join(' ')
-            ;
+        ;
     }
 
     public function render()
