@@ -5,8 +5,9 @@ Package of Blade components for Northeastern University websites
 ## Prequisites
 
 In order to use this package
+- Your project must support PHP v7.3+ (Laravel 8) or PHP v8.1+ (Laravel 9).
 - Your project must be using the [@northeastern-web/kernl-ui JavaScript and CSS package](https://npmjs.com/package/@northeastern-web/kernl-ui).
-- Your project also must support the new [Laravel Blade 7 components](https://laravel.com/docs/7.x/blade#components).
+- Your project also must support [Laravel Blade 8 components](https://laravel.com/docs/8.x/blade#components) or [Laravel Blade 9 components](https://laravel.com/docs/9.x/blade#components).
 
 ## Installation
 
@@ -65,6 +66,23 @@ module.exports = {
 ### Laravel app
 
 To use the components in a Laravel app, the Service Provider should be loaded automatically, requiring no extra configuration.
+
+### Roots Sage/Acorn
+To use the components in a WordPress theme powered by [Sage](https://roots.io/sage/) or using the [Acorn](https://roots.io/acorn/) package, load the `Northeastern\Blade\NUKernlUIBladeComponentsServiceProvider` class in the `config/app.php` file under `'providers'`:
+
+```php
+// config/app.php
+
+'providers' => [
+    // ... Other Providers
+
+    /**
+     * Application Service Providers
+     */
+    App\Providers\ThemeServiceProvider::class,
+    Northeastern\Blade\NUKernlUIBladeComponentsServiceProvider::class
+]
+```
 
 ### Tighten Jigsaw
 
@@ -268,7 +286,7 @@ Any additional classes or attributes you put on the component will be passed thr
 
 ### Banners
 
-### With Offset Card
+#### With Offset Card
 
 To use the With Offset Card Banner component, add the following markup to your Blade template.
 
@@ -280,11 +298,11 @@ To use the With Offset Card Banner component, add the following markup to your B
 </x-kernl-banners.with-offset-card>
 ```
 
-#### `x-kernl-banners.with-offset-card` Props
+##### `x-kernl-banners.with-offset-card` Props
 
 -   `background-url` - URL of background image to be applied.
 
-### Bottom Title
+#### Bottom Title
 
 To use the Bottom Title Banner component, add the following markup to your Blade template.
 
@@ -295,7 +313,7 @@ To use the Bottom Title Banner component, add the following markup to your Blade
 />
 ```
 
-#### `x-kernl-banners.bottom-title` Props
+##### `x-kernl-banners.bottom-title` Props
 
 -   `background-url` - URL of background image to be applied.
 -   `title` - Title to be presented.
@@ -321,7 +339,11 @@ By default, the button components will render a `button` element. If you need an
 Any additional classes or attributes you put on the component will be passed through.
 
 ```blade
-<x-kernl-button.solid color="light" class="rounded-full" @click="doSomething">
+<x-kernl-button.solid 
+    color="light" 
+    class="rounded-full" 
+    @click="doSomething"
+>
     Button
 </x-kernl-button.solid>
 ```
@@ -334,7 +356,7 @@ Any additional classes or attributes you put on the component will be passed thr
 
 ### Carousels
 
-### Base and Base Slide
+#### Base and Base Slide
 
 To use the Carousel Base and Base Slide component, add the following markup to your Blade template.
 
@@ -357,11 +379,11 @@ To use the Carousel Base and Base Slide component, add the following markup to y
 </x-kernl-carousel.base>
 ```
 
-#### `x-kernl-carousel.base` Props
+##### `x-kernl-carousel.base` Props
 
 -   `delay` - (optional) The delay that the slides should rotate at in milliseconds. Default value is 5000.
 
-#### `x-kernl-carousel.base.slide` Props
+##### `x-kernl-carousel.base.slide` Props
 
 -   `index` - The index of the slide. _Each slide's index should increment by 1, starting at 0._
 -   `background-classes` - (optional) Any classes you want to apply to the outer element.
@@ -369,7 +391,7 @@ To use the Carousel Base and Base Slide component, add the following markup to y
 
 Any additional attributes you add to the Base Slide component (`style`, etc.), will be passed through to the background element.
 
-### Split and Split Slide
+#### Split and Split Slide
 
 To use the Split Carousel and Split Slide component, add the following markup to your Blade template.
 
@@ -387,12 +409,12 @@ To use the Split Carousel and Split Slide component, add the following markup to
 </x-kernl-carousel.split>
 ```
 
-#### `x-kernl-carousel.split` Props
+##### `x-kernl-carousel.split` Props
 
 -   `height-classes` - Classes to set the overall height on the carousel. Should be double each slide height when slides are stacked (mobile).
 -   `delay` - (optional) The delay that the slides should rotate at in milliseconds. Default value is 5000.
 
-#### `x-kernl-carousel.split.slide` Props
+##### `x-kernl-carousel.split.slide` Props
 
 -   `index` - The index of the slide. _Each slide's index should increase by 1, starting at 0._
 -   `class` - Any classes you want to apply to the element around the slot. This should be used to pass in the height classes.
@@ -414,7 +436,7 @@ To use the Loader component, light or dark, add the following markup to your Bla
 </div>
 ```
 
-#### `x-kernl-loaders.light` Props
+##### `x-kernl-loaders.light` Props
 
 -   `x-show` - (optional) Used to show/hide the loader based on an Alpine.js property
 
@@ -429,13 +451,13 @@ To use the Loader component, light or dark, add the following markup to your Bla
 </div>
 ```
 
-#### `x-kernl-loaders.dark` Props
+##### `x-kernl-loaders.dark` Props
 
 -   `x-show` - (optional) Used to show/hide the loader based on an Alpine.js property
 
 ### Tags
 
-### Solid
+#### Solid
 
 To use the Solid Tag component, add the following markup to your Blade template.
 
@@ -449,13 +471,13 @@ To use the Solid Tag component, add the following markup to your Blade template.
 </x-kernl-tags.solid>
 ```
 
-#### `x-kernl-tags.solid` Props
+##### `x-kernl-tags.solid` Props
 
 -   `color` - Color for text/background. Default is `dark`
 -   `pill` - (optional) Rounds corners for a pill-like appearance. Default is `false`
 -   `uppercase` - (optional) Uppercase content. Default is `false`
 
-### Outline
+#### Outline
 
 To use the Outline Tag component, add the following markup to your Blade template.
 
@@ -469,7 +491,7 @@ To use the Outline Tag component, add the following markup to your Blade templat
 </x-kernl-tags.outline>
 ```
 
-#### `x-kernl-tags.outline` Props
+##### `x-kernl-tags.outline` Props
 
 -   `color` - Color for text/border. Default is `dark`
 -   `pill` - (optional) Rounds corners for a pill-like appearance. Default is `false`
@@ -477,7 +499,7 @@ To use the Outline Tag component, add the following markup to your Blade templat
 
 ### Modals
 
-### Base Modal
+#### Base Modal
 
 To use the Base Modal component, add the following markup to your Blade template. The modal can be triggered from anywhere on your page using the `NUModals.open` and `NUModals.close` methods.
 
@@ -495,7 +517,7 @@ To use the Base Modal component, add the following markup to your Blade template
 <button x-data x-on:click="NUModals.close('unique-modal-id')">Close Modal</button>
 ```
 
-#### `x-kernl-modals.base` Props
+##### `x-kernl-modals.base` Props
 
 -   `id` - ID of the modal. Must be unique throughout the app. This ID can be used with `window.NUModals` methods
 -   `closeable` - (optional) Adds close button at the top right corner. `true` by default
@@ -504,7 +526,7 @@ To use the Base Modal component, add the following markup to your Blade template
 
 ### Footer
 
-### Local
+#### Local
 
 To use the Local Footer component, add the following markup to your Blade template.
 
@@ -528,30 +550,30 @@ To use the Local Footer component, add the following markup to your Blade templa
 </x-kernl-footers.local>
 ```
 
-#### Props
+##### `x-kernl-footers.local` Props
 
 -   `links` = Array of titles and links for the navigation sections of the footer. Each title can have a `children` key that's an array of more titles/links. These titles/links will be displayed below the parent title.
     Example:
 
-```php
-$links = [
-    [
-        'text' => 'About',
-        'href' => '/about', // (optional)
-        'children' => [
-            [
-                'text' => 'Careers',
-                'href' => '/about/careers',
-            ],
-            [
-                'text' => 'Staff',
-                'href' => '/about/staff',
+    ```php
+    $links = [
+        [
+            'text' => 'About',
+            'href' => '/about', // (optional)
+            'children' => [
+                [
+                    'text' => 'Careers',
+                    'href' => '/about/careers',
+                ],
+                [
+                    'text' => 'Staff',
+                    'href' => '/about/staff',
+                ],
             ],
         ],
-    ],
-    // ... More links
-];
-```
+        // ... More links
+    ];
+    ```
 
 -   `logo-url` - (optional) URL for the footer logo.
 -   `facebook-url` - (optional) Facebook URL for the footer. Adding the URL will display the respective social network icon.
@@ -561,7 +583,7 @@ $links = [
 -   `twitter-url` - (optional) Twitter URL for the footer. Adding the URL will display the respective social network icon.
 -   `instagram-url` - (optional) Instagram URL for the footer. Adding the URL will display the respective social network icon.
 
-## PreFooter
+#### PreFooter
 
 To use the PreFooter component, use the following markup to your Blade Template. Note, for a multi-column layout the <x-kernl-footers.pre-footer.column> element will need to be wrapped in a foreach loop, or manually populated.
 
@@ -574,32 +596,32 @@ To use the PreFooter component, use the following markup to your Blade Template.
         :title="<string value>"
         :link="<link array>"
         :description="<string value>"
-      >
-      </x-kernl-footers.pre-footer.column>
+      />
+      
 </x-kernl-footers.pre-footer.base>
 ```
 
-#### `x-kernl-footers.base` Props
+##### `x-kernl-footers.pre-footer.base` Props
 
 -   `columns` - (optional) Set the number of grid columns to display on large screens. Default is 3.
 
-#### `x-kernl-footers.base` Props
+##### `x-kernl-footers.pre-footer.column` Props
 
 -   `featherIcon` - (optional) Choose a Feather Icon from https://feathericons.com/ and enter the name of it here.
 -   `title` - (required) The title of the PreFooter column.
 -   `description` - (required) A description of the PreFooter column.
 -   `link` - (required) This will be an array that must include a url, and optionally a target. Example:
 
-```php
-    $link = [
-        'url' => 'https://www.google.com',
-        'target' => '_blank'
-    ]
-```
+    ```php
+        $link = [
+            'url' => 'https://www.google.com',
+            'target' => '_blank'
+        ]
+    ```
 
 ### Tabs
 
-### Underlined
+#### Underlined
 
 ```blade
 <x-kernl-tabs.underlined :default-active="0">
@@ -617,17 +639,17 @@ To use the PreFooter component, use the following markup to your Blade Template.
 </x-kernl-tabs.underlined>
 ```
 
-#### `x-kernl-tabs.underlined` Props
+##### `x-kernl-tabs.underlined` Props
 
 -   `default-active` - (optional) Index of the initial active tab. Default is 0 (zero).
 
-#### `x-kernl-tabs.underlined.item` Props
+##### `x-kernl-tabs.underlined.item` Props
 
 -   `title` - Title of the tab contents
 
 Any additional classes or attributes you put on the `item` component will be passed through.
 
-### Bordered
+#### Bordered
 
 ```blade
 <x-kernl-tabs.bordered :default-active="0">
@@ -645,17 +667,17 @@ Any additional classes or attributes you put on the `item` component will be pas
 </x-kernl-tabs.bordered>
 ```
 
-#### `x-kernl-tabs.bordered` Props
+##### `x-kernl-tabs.bordered` Props
 
 -   `default-active` - (optional) Index of the initial active tab. Default is 0 (zero).
 
-#### `x-kernl-tabs.bordered.item` Props
+##### `x-kernl-tabs.bordered.item` Props
 
 -   `title` - Title of the tab contents
 
 Any additional classes or attributes you put on the `item` component will be passed through.
 
-### Detached
+#### Detached
 
 ```blade
 <x-kernl-tabs.detached :default-active="0">
@@ -673,11 +695,11 @@ Any additional classes or attributes you put on the `item` component will be pas
 </x-kernl-tabs.detached>
 ```
 
-#### `x-kernl-tabs.detached` Props
+##### `x-kernl-tabs.detached` Props
 
 -   `default-active` - (optional) Index of the initial active tab. Default is 0 (zero).
 
-#### `x-kernl-tabs.detached.item` Props
+##### `x-kernl-tabs.detached.item` Props
 
 -   `title` - Title of the tab contents
 
@@ -685,7 +707,7 @@ Any additional classes or attributes you put on the `item` component will be pas
 
 ### Heroes
 
-### Split Layout Media Content
+#### Split Layout Media Content
 
 ```blade
 <x-kernl-heroes.split-layout-content-media
@@ -704,7 +726,7 @@ Any additional classes or attributes you put on the `item` component will be pas
 </x-kernl-heroes.split-layout-content-media>
 ```
 
-#### `x-kernl-heroes.split-layout-content-media` Props
+##### `x-kernl-heroes.split-layout-content-media` Props
 
 -   `media-url` - Url of image to show
 -   `title` - Title of content
@@ -714,9 +736,9 @@ Any additional classes or attributes you put on the `item` component will be pas
 
 Any additional classes or attributes you put on the component will be passed through.
 
-> Note: when using the \$slot version, title, body, call-to-action and call-to-action-url are not required.
+> Note: when using the `$slot` version, `title`, `body`, `call-to-action` and `call-to-action-url` are not required.
 
-### Full Background Media Centered Content
+#### Full Background Media Centered Content
 
 ```blade
 <x-kernl-heroes.full-centered-content
@@ -731,7 +753,7 @@ Any additional classes or attributes you put on the component will be passed thr
 </x-kernl-heroes.full-centered-content>
 ```
 
-#### `x-kernl-heroes.full-centered-content` Props
+##### `x-kernl-heroes.full-centered-content` Props
 
 -   `title` - Title of content
 -   `subtitle` - Subtitle of content
@@ -781,7 +803,7 @@ Any additional classes or attributes you put on the `base` component will be pas
 
 ### Cards
 
-### Simple Link
+#### Simple Link
 
 ```blade
 <x-kernl-cards.simple-link
@@ -809,7 +831,7 @@ Any additional classes or attributes you put on the `base` component will be pas
 </x-kernl-cards.simple-link>
 ```
 
-#### `x-kernl-cards.simple-link` Props
+##### `x-kernl-cards.simple-link` Props
 
 -   `title` - Title text
 -   `body` - Body text
@@ -821,9 +843,9 @@ Any additional classes or attributes you put on the `base` component will be pas
 
 Any additional classes or attributes you put on the component will be passed through.
 
-> Note: \$slot version has two named slots: 'main' and 'footer'. Use them to override the main and footer content respectively.
+> Note: `$slot` version has two named slots: `'main'` and `'footer'`. Use them to override the main and footer content respectively.
 
-### Simple With Actions
+#### Simple With Actions
 
 ```blade
 <x-kernl-cards.simple-with-actions
@@ -855,7 +877,7 @@ Any additional classes or attributes you put on the component will be passed thr
 </x-kernl-cards.simple-with-actions>
 ```
 
-#### `x-kernl-cards.simple-with-actions` Props
+##### `x-kernl-cards.simple-with-actions` Props
 
 -   `title` - Title text
 -   `body` - Body text
@@ -870,7 +892,7 @@ Any additional classes or attributes you put on the component will be passed thr
 
 > Note: \$slot version has two named slots: 'main' and 'actions'. Use them to override the main and actions content respectively.
 
-### Link With Media
+#### Link With Media
 
 ```blade
 <x-kernl-cards.link-with-media
@@ -911,7 +933,7 @@ Any additional classes or attributes you put on the component will be passed thr
 </x-kernl-cards.link-with-media>
 ```
 
-#### `x-kernl-cards.link-with-media` Props
+##### `x-kernl-cards.link-with-media` Props
 
 -   `title` - Title text
 -   `body` - Body text
@@ -927,11 +949,11 @@ Any additional classes or attributes you put on the component will be passed thr
 
 Any additional classes or attributes you put on the component will be passed through.
 
-> Note: \$slot version has two named slots: 'main' and 'footer'. Use them to override the main and footer content respectively.
+> Note: `$slot` version has two named slots: `'main'` and `'footer'`. Use them to override the main and footer content respectively.
 >
 > Note: The `@tailwindcss/aspect-ratio` plugin is required for the this component to work correctly. Please see [documentation](https://northeastern.netlify.app/docs/plugins/#tailwind-aspect-ratio)
 
-### Link With Media And Actions
+#### Link With Media And Actions
 
 ```blade
 <x-kernl-cards.link-with-media-and-actions
@@ -972,7 +994,7 @@ Any additional classes or attributes you put on the component will be passed thr
 </x-kernl-cards.link-with-media-and-actions>
 ```
 
-#### `x-kernl-cards.link-with-media-and-actions` Props
+##### `x-kernl-cards.link-with-media-and-actions` Props
 
 -   `title` - Title text
 -   `body` - Body text
@@ -990,11 +1012,11 @@ Any additional classes or attributes you put on the component will be passed thr
 
 Any additional classes or attributes you put on the component will be passed through.
 
-> Note: \$slot version has two named slots: 'main' and 'actions'. Use them to override the main and actions content respectively.
+> Note: `$slot` version has two named slots: `'main'` and `'actions'`. Use them to override the main and actions content respectively.
 >
 > Note: The `@tailwindcss/aspect-ratio` plugin is required for the this component to work correctly. Please see [documentation](https://northeastern.netlify.app/docs/plugins/#tailwind-aspect-ratio)
 
-### Event
+#### Event
 
 ```blade
 <x-kernl-cards.event
@@ -1044,7 +1066,7 @@ Any additional classes or attributes you put on the component will be passed thr
 
 Any additional classes or attributes you put on the component will be passed through.
 
-> Note: \$slot version has two named slots: 'main' and 'footer'. Use them to override the main and footer content respectively.
+> Note: `$slot` version has two named slots: `'main'` and `'footer'`. Use them to override the main and footer content respectively.
 >
 > Note: The `@tailwindcss/aspect-ratio` plugin is required for the this component to work correctly. Please see [documentation](https://northeastern.netlify.app/docs/plugins/#tailwind-aspect-ratio)
 
