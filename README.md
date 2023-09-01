@@ -198,13 +198,13 @@ To use the local header component, add the following markup to your Blade templa
 
 -   `megaMenuCta` - If you select 'mega' as your `menuStyle`, you can add a CTA to the footer of each menu item. It should be formatted as such:
 
-```php
-    $megaMenuCta = [
-        "title" => "Your Link Title",
-        "url" => "https://yourlinkurl.com",
-        "target" => "_blank"
-    ]
-```
+    ```php
+        $megaMenuCta = [
+            "title" => "Your Link Title",
+            "url" => "https://yourlinkurl.com",
+            "target" => "_blank"
+        ]
+    ```
 
 -   `megaMenuAlert` - This is an optional string that will place a badge next to the title of your CTA.
 
