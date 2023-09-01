@@ -1052,7 +1052,7 @@ Any additional classes or attributes you put on the component will be passed thr
 </x-kernl-cards.event>
 ```
 
-#### `x-kernl-cards.event` Props
+##### `x-kernl-cards.event` Props
 
 -   `title` - Title text
 -   `body` - Body text
