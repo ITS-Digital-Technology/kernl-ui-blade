@@ -37,8 +37,8 @@
                         </svg>
                     @endif
                 @else
-                    @if ($logoBlack)
-                        {!! $logoBlack !!}
+                    @if ($logoDark)
+                        {!! $logoDark !!}
                     @elseif ($logo)
                         {{ $logo }}
                     @else
