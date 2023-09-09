@@ -1,4 +1,6 @@
 <button
+    id="pop-out-btn-{{ $loop['index'] }}"
+    aria-controls="pop-out-{{ $loop['index'] }}"
     @click="
         isOpen = !isOpen;
         let windowSize = screen.width;
@@ -18,7 +20,7 @@
         @endif
     "
 >
-    <span class="py-1 border-b-2 border-transparent">{!! $item['text'] !!}</span>
+    <span class="py-1 border-b-2 border-transparent">{!! $item['label'] !!}</span>
     @isset($item['children'])
         @if ($item['children'])
             <svg 

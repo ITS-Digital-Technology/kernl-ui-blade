@@ -1,5 +1,7 @@
 {{-- Mega Menu - Pop-out --}}
 <div
+    id="pop-out-{!! $loop['index'] !!}"
+    aria-labelledby="pop-out-btn-{!! $loop['index'] !!}"
     x-show="isOpen"
     x-transition:enter="transition ease-out duration-200"
     x-transition:enter-start="opacity-0 translate-y-1"
@@ -10,18 +12,17 @@
     @click.away="isOpen = false"
     @mouseleave="isOpen = false"
     x-on:keydown.window.escape="isOpen = false"
-    class="absolute z-10 transform mt-3 px-2 w-screen shadow-lg max-w-md sm:px-0 lg:max-w-max"
-    role="presentation"                        
+    class="absolute z-10 transform mt-3 px-2 w-screen shadow-lg max-w-md sm:px-0 lg:max-w-max"                    
 >
     <div class="pt-4 pl-8 pr-16 bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
         <div class="relative bg-white px-5 py-3 mt-6">
             <a 
-                href="{!! $item['href'] !!}" 
+                href="{!! $item['url'] !!}" 
                 class="-m-3 pr-1 flex mb-1 items-start  border-l-3 border-transparent hover:border-red-700 transition ease-in-out duration-150"
             >
                 <div class="mx-4">
                     <p class="text-base uppercase font-medium text-gray-800 text-sm leading-5">
-                        {!! $item['text'] !!}
+                        {!! $item['label'] !!}
                     </p>
                 </div>
             </a>
@@ -37,12 +38,12 @@
                         @if($loop->last && !$megaMenuCta )
                             x-on:keydown.tab="isOpen = false"
                         @endif
-                        href="{!! $child['href'] !!}" 
+                        href="{!! $child['url'] !!}" 
                         class="-m-3 pr-1 flex mb-1 h-5 items-center border-l-3 border-transparent hover:border-red-700  transition ease-in-out duration-150"
                     >
                         <div class="mx-4">
                             <p class="text-base font-medium hover:underline text-gray-800 leading-5 hover:text-black">
-                                {!! $child['text'] !!}
+                                {!! $child['label'] !!}
                             </p>
                         </div>
                     </a>

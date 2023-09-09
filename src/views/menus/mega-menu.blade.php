@@ -16,14 +16,20 @@
                 >
                     <div>
                         @if ($item['children'])
-                            @include('kernl-ui::includes.menus.mega-menu.link-with-children', ['item' => $item])
+                            @include('kernl-ui::includes.menus.mega-menu.link-with-children', [
+                                'item' => $item, 
+                                'loop' => $loop 
+                            ])
                         @else
-                            @include('kernl-ui::includes.menus.mega-menu.link', ['item' => $item ])
+                            @include('kernl-ui::includes.menus.mega-menu.link', [
+                                'item' => $item 
+                                ])
                         @endif
                         @isset($item['children'])
                             @if($item['children'])
                                 @include('kernl-ui::includes.menus.mega-menu.pop-out', [
                                     'item' => $item, 
+                                    'loop' => $loop,
                                     'megaMenuCta' => $megaMenuCta, 
                                     'megaMenuCopy' => $megaMenuCopy, 
                                     'megaMenuAlert' => $megaMenuAlert 
