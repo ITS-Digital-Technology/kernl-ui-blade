@@ -20,7 +20,7 @@
         @endif
     "
 >
-    <span class="py-1 border-b-2 border-transparent">{!! $item['label'] !!}</span>
+    <span class="py-1 border-b-2 border-transparent">{!! $item['text'] !!}</span>
     @isset($item['children'])
         @if ($item['children'])
             <svg 
