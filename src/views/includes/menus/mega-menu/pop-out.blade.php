@@ -39,7 +39,7 @@
                             x-on:keydown.tab="isOpen = false"
                         @endif
                         href="{!! $child['href'] !!}" 
-                        class="-m-3 pr-1 flex mb-1 h-5 items-center border-l-3 border-transparent hover:border-red-700  transition ease-in-out duration-150"
+                        class="-m-3 pr-1 flex mb-1 h-5 items-center border-l-3 border-transparent hover:border-red-700 transition ease-in-out duration-150"
                     >
                         <div class="mx-4">
                             <p class="text-base font-medium hover:underline text-gray-800 leading-5 hover:text-black">
