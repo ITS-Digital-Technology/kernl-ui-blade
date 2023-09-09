@@ -1,6 +1,6 @@
 <button
-    id="pop-out-btn-{{ $loop['index'] }}"
-    aria-controls="pop-out-{{ $loop['index'] }}"
+    id="pop-out-btn-{{ $loop->index }}"
+    aria-controls="pop-out-{{ $loop->index }}"
     @click="
         isOpen = !isOpen;
         let windowSize = screen.width;
@@ -13,7 +13,9 @@
         @endif
     @endif
     :class="isOpen ? 'bg-gray-100 text-gray-800' : ''"
-    class="inline-flex items-center pl-4 py-1 text-sm rounded-sm hover:bg-gray-100 transition duration-200 hover:text-gray-800 hover:cursor-pointer focus:outline-none focus:ring focus:ring-blue-400
+    class="
+        inline-flex items-center pl-4 py-1 text-sm rounded-sm 
+        hover:bg-gray-100 transition duration-200 hover:text-gray-800 hover:cursor-pointer focus:outline-none focus:ring focus:ring-blue-400
         {{ $dark ? 'text-white' : 'text-gray-800' }}
         @empty($item['children'])
             pr-4
