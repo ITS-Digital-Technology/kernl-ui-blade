@@ -1,6 +1,6 @@
 <div x-ref="desktopNav" class="hidden xl:flex flex-col items-end" x-cloak>
     @if ($supportNav)
-        @include('kernl-ui::/menus/support-navigation')
+        @include('kernl-ui::menus.support-navigation')
     @endif
 
     @if ($links)
@@ -9,47 +9,11 @@
                 <div x-data="{isOpen: false} "class="relative" role="listitem">
                     {{-- Mega Menu Item --}}
                     <div>
-                        <a
-                            @click="
-                                isOpen = !isOpen;
-                                let windowSize = screen.width;
-                                megaMenu($el, windowSize);
-                            "
-                            @isset($item['children'])
-                                @if($item['children'])
-                                    x-on:click.prevent
-                                @endif
-                            @endif
-                            href="{{ $item['href'] }}"
-                            :class="isOpen ? 'bg-gray-100 text-gray-800' : ''"
-                            class="inline-flex items-center pl-4 py-1 text-sm rounded-sm hover:bg-gray-100 transition duration-200 hover:text-gray-800 hover:cursor-pointer focus:outline-none focus:ring focus:ring-blue-400
-                                {{ $dark ? 'text-white' : 'text-gray-800' }}
-                                @empty($item['children'])
-                                    pr-4
-                                @endif
-                            " 
-                            aria-expanded="false"
-
-                        >
-                            <span class="py-1 border-b-2 border-transparent">{!! $item['text'] !!}</span>
-                            @isset($item['children'])
-                                @if ($item['children'])
-                                    <svg 
-                                        class="text-gray-400 mx-4 xl:ml-1 xl:mr-5 h-5 w-5 group-hover:text-gray-500 transition ease-in-out duration-150" 
-                                        xmlns="http://www.w3.org/2000/svg" 
-                                        viewBox="0 0 20 20" 
-                                        fill="currentColor" 
-                                        aria-hidden="true"
-                                    >
-                                        <path 
-                                            fill-rule="evenodd" 
-                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" 
-                                            clip-rule="evenodd" 
-                                        />
-                                    </svg>
-                                @endif
-                            @endif
-                        </a>
+                        @if ($item['children'])
+                            @include('kernl-ui::includes.menus.mega-menu.link-with-children', ['item' => $item])
+                        @else
+                            @include('kernl-ui::includes.menus.mega-menu.link', ['item' => $item ])
+                        @endif
                     @isset($item['children'])
                         @if($item['children'])
                             {{-- Mega Menu - Pop-out --}}
