@@ -25,8 +25,8 @@
                 href="{!! $siteHome ? $siteHome : '/' !!}"
             >
                 @if($dark)
-                    @if ($logoWhite)
-                        {!! $logoWhite !!}
+                    @if ($logoLight)
+                        {!! $logoLight !!}
                     @elseif ($logo)
                         {{ $logo }}
                     @else
