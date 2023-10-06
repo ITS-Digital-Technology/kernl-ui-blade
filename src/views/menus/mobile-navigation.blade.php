@@ -25,8 +25,8 @@
                 href="{!! $siteHome ? $siteHome : '/' !!}"
             >
                 @if($dark)
-                    @if ($logoWhite)
-                        {!! $logoWhite !!}
+                    @if ($logoLight)
+                        {!! $logoLight !!}
                     @elseif ($logo)
                         {{ $logo }}
                     @else
@@ -37,8 +37,8 @@
                         </svg>
                     @endif
                 @else
-                    @if ($logoBlack)
-                        {!! $logoBlack !!}
+                    @if ($logoDark)
+                        {!! $logoDark !!}
                     @elseif ($logo)
                         {{ $logo }}
                     @else
@@ -74,7 +74,9 @@
                     <li class="block leading-5">
                         @isset($item['children'])
                             @if(count($item['children']) > 0)
-                                <div class="w-full flex items-center justify-between text-left w-full border-b rounded-sm focus:outline-none focus:shadow-outline {{ $dark ? ' hover:bg-gray-900 hover:text-gray-100' : 'hover:bg-gray-50 text-gray-900'}}">
+                                <div class="w-full flex items-center justify-between text-left w-full border-b rounded-sm focus:outline-none focus:shadow-outline 
+                                    {{ $dark ? ' hover:bg-gray-900 hover:text-gray-100' : 'hover:bg-gray-50 text-gray-900'}}
+                                ">
                                     <a 
                                         id="mobile-navbar-dropdown-{!! $loop->index !!}"
                                         class="inline-flex w-full items-center justify-between py-4 px-3"
@@ -120,7 +122,9 @@
                                                         &middot;
                                                     </span>
                                                     <a 
-                                                        class="block py-4 pr-4 pl-8 whitespace-no-wrap focus:outline-none focus:shadow-outline {{ $dark ? 'text-gray-50 hover:bg-gray-50 hover:text-gray-900' : 'text-gray-900 hover:text-gray-50 hover:bg-gray-900'}}"
+                                                        class="block py-4 pr-4 pl-8 whitespace-no-wrap focus:outline-none focus:shadow-outline 
+                                                            {{ $dark ? 'text-gray-50 hover:bg-gray-50 hover:text-gray-900' : 'text-gray-900 hover:text-gray-50 hover:bg-gray-900'}}
+                                                        "
                                                         href="{{ $child['href'] }}"
                                                         {!! $currentPath == $child['href'] ? 'aria-current="page"' : '' !!}
                                                         {!! \Illuminate\Support\Str::startsWith($child['href'], '#') ? '@click="navIsOpen = false"' : '' !!}
@@ -134,7 +138,11 @@
                                 @endif
                             @else
                                 <a
-                                    class="inline-block w-full py-4 px-3 border-b rounded-sm focus:outline-none focus:shadow-outline {{ $item->classes ?? '' }}{{ $item->active ? 'active' : '' }}{{ $dark ? 'hover:text-gray-50 hover:bg-gray-900' : 'hover:text-gray-900 hover:bg-gray-50'}}"
+                                    class="inline-block w-full py-4 px-3 border-b rounded-sm focus:outline-none focus:shadow-outline 
+                                        {{ $item['classes'] ?? '' }}
+                                        {{ $item['active'] ? 'active' : '' }}
+                                        {{ $dark ? 'hover:text-gray-50 hover:bg-gray-900' : 'hover:text-gray-900 hover:bg-gray-50'}}
+                                    "
                                     href="{{ $item['href'] }}"
                                     {!! $currentPath == $item['href'] ? 'aria-current="page"' : '' !!}
                                     {!! \Illuminate\Support\Str::startsWith($item['href'], '#') ? '@click="navIsOpen = false"' : '' !!}
@@ -144,7 +152,11 @@
                             @endif
                         @else
                             <a
-                                class="inline-block w-full py-4 px-3 border-b rounded-sm focus:outline-none focus:shadow-outline {{ $item->classes ?? '' }}{{ $item->active ? 'active' : '' }}{{ $dark ? 'hover:text-gray-50 hover:bg-gray-900' : 'hover:text-gray-900 hover:bg-gray-50'}}"
+                                class="inline-block w-full py-4 px-3 border-b rounded-sm focus:outline-none focus:shadow-outline 
+                                    {{ $item['classes'] ?? '' }}
+                                    {{ $item['active'] ? 'active' : '' }}
+                                    {{ $dark ? 'hover:text-gray-50 hover:bg-gray-900' : 'hover:text-gray-900 hover:bg-gray-50'}}
+                                "
                                 href="{{ $item['href'] }}"
                                 {!! $currentPath == $item['href'] ? 'aria-current="page"' : '' !!}
                                 {!! \Illuminate\Support\Str::startsWith($item['href'], '#') ? '@click="navIsOpen = false"' : '' !!}
@@ -205,7 +217,9 @@
                                                         &middot;
                                                     </span>
                                                     <a 
-                                                        class="block py-4 pr-4 pl-8 whitespace-no-wrap focus:outline-none focus:shadow-outline {{ $dark ? 'text-gray-50 hover:bg-gray-50 hover:text-gray-900' : 'text-gray-900 hover:text-gray-50 hover:bg-gray-900'}}"
+                                                        class="block py-4 pr-4 pl-8 whitespace-no-wrap focus:outline-none focus:shadow-outline 
+                                                            {{ $dark ? 'text-gray-50 hover:bg-gray-50 hover:text-gray-900' : 'text-gray-900 hover:text-gray-50 hover:bg-gray-900'}}
+                                                        "
                                                         href="{{ $child['href'] }}"
                                                         {!! $currentPath == $child['href'] ? 'aria-current="page"' : '' !!}
                                                         {!! \Illuminate\Support\Str::startsWith($child['href'], '#') ? '@click="navIsOpen = false"' : '' !!}
@@ -219,7 +233,11 @@
                                 @endif
                             @else
                                 <a
-                                    class="inline-block w-full py-4 px-3 border-b rounded-sm focus:outline-none focus:shadow-outline {{ $item->classes ?? '' }}{{ $item->active ? 'active' : '' }}{{ $dark ? 'hover:text-gray-50 hover:bg-gray-900' : 'hover:text-gray-900 hover:bg-gray-50'}}"
+                                    class="inline-block w-full py-4 px-3 border-b rounded-sm focus:outline-none focus:shadow-outline 
+                                        {{ $item['classes'] ?? '' }}
+                                        {{ $item['active'] ? 'active' : '' }}
+                                        {{ $dark ? 'hover:text-gray-50 hover:bg-gray-900' : 'hover:text-gray-900 hover:bg-gray-50'}}
+                                    "
                                     href="{{ $item['href'] }}"
                                     {!! $currentPath == $item['href'] ? 'aria-current="page"' : '' !!}
                                     {!! \Illuminate\Support\Str::startsWith($item['href'], '#') ? '@click="navIsOpen = false"' : '' !!}
@@ -229,7 +247,10 @@
                             @endif
                         @else
                             <a
-                                class="inline-block w-full py-4 px-3 border-b rounded-sm focus:outline-none focus:shadow-outline {{ $item->classes ?? '' }}{{ $item->active ? 'active' : '' }}{{ $dark ? 'hover:text-gray-50 hover:bg-gray-900' : 'hover:text-gray-900 hover:bg-gray-50'}}"
+                                class="inline-block w-full py-4 px-3 border-b rounded-sm focus:outline-none focus:shadow-outline 
+                                    {{ $item['classes'] ?? '' }}
+                                    {{ $item['active'] ? 'active' : '' }}
+                                    {{ $dark ? 'hover:text-gray-50 hover:bg-gray-900' : 'hover:text-gray-900 hover:bg-gray-50'}}"
                                 href="{{ $item['href'] }}"
                                 {!! $currentPath == $item['href'] ? 'aria-current="page"' : '' !!}
                                 {!! \Illuminate\Support\Str::startsWith($item['href'], '#') ? '@click="navIsOpen = false"' : '' !!}
