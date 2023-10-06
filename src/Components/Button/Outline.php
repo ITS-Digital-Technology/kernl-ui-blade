@@ -18,7 +18,7 @@ class Outline extends Component
 
     protected $colors = [
         'dark' => 'text-black border-black hover:text-white hover:bg-black',
-        'light' => 'text-white border-white hover:text-black',
+        'light' => 'text-white border-white hover:text-black hover:bg-white',
         'medium-gray' => 'text-gray-600 border-gray-600 hover:text-white hover:bg-gray-600',
         'light-gray' => 'text-gray-300 border-gray-300 hover:text-gray-900 hover:bg-gray-300',
         'red' => 'text-red-600 border-red-600 hover:text-white hover:bg-red-600',
