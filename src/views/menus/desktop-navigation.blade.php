@@ -8,12 +8,24 @@
             @foreach ($links as $item)
                 @isset($item['children'])
                     @if(count($item['children']) > 0)
-                        @include('kernl-ui::includes.menus.desktop-navigation.item-with-children', [ 'item' => $item])
+                        @include('kernl-ui::includes.menus.desktop-navigation.item-with-children', [ 
+                            'item' => $item, 
+                            'dark' => $dark, 
+                            'currentPath' => $currentPath 
+                        ])
                     @else
-                        @include('kernl-ui::includes.menus.desktop-navigation.item', [ 'item' => $item ])
+                        @include('kernl-ui::includes.menus.desktop-navigation.item', [ 
+                            'item' => $item, 
+                            'dark' => $dark, 
+                            'currentPath' => $currentPath 
+                        ])
                     @endif
                 @else
-                    @include('includes.menus.desktop-navigation.item', [ 'item' => $item ])
+                    @include('kernl-ui::includes.menus.desktop-navigation.item', [ 
+                        'item' => $item, 
+                        'dark' => $dark, 
+                        'currentPath' => $currentPath 
+                    ])
                 @endisset
             @endforeach
 
@@ -22,7 +34,7 @@
             @endisset
 
             @if ($search)
-                @include('kernl-ui::includes/headers/search-desktop')
+                @include('kernl-ui::includes.headers.search-desktop')
             @endif
         </ul>
     @endif
