@@ -16,7 +16,11 @@
         x-transition:leave="ease-in duration-200"
         x-transition:leave-start="translate-x-0"
         x-transition:leave-end="-translate-x-full"
-        class="fixed inset-y-0 left-0 transform px-4 pt-6 pb-16 overflow-y-auto transition-transform xl:hidden {{ $dark ? 'bg-gray-800 text-gray-50' : 'bg-white text-gray-900'}}"
+        class="
+            fixed px-4 pt-6 pb-16 overflow-y-auto xl:hidden
+            inset-y-0 left-0 transform transition-transform 
+            {{ $dark ? 'bg-gray-800 text-gray-50' : 'bg-white text-gray-900'}}
+        "
     >
         <div class="flex items-start justify-between">
             <a 
@@ -69,6 +73,7 @@
                 @if ($search)
                     @include('kernl-ui::includes.headers.search-mobile')
                 @endif
+
                 <!-- Primary Navigation -->
                 @foreach ($links as $item)
                     <li class="block leading-5">
@@ -95,6 +100,7 @@
                         @endisset
                     </li>
                 @endforeach
+
                 <!-- Support Navigation -->
                 @foreach ($supportNav as $item)
                     <li class="block leading-5">

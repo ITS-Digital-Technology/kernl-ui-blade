@@ -14,6 +14,6 @@
                     'currentPath' => $currentPath 
                 ])
             @endif
-        @endif
+        @endisset
     @endforeach
 </ul>
