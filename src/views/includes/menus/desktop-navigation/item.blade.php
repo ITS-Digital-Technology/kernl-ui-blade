@@ -5,7 +5,7 @@
             hover:text-gray-800 hover:bg-gray-100 
             focus:outline-none focus:ring focus:ring-blue-400
             transition duration-200 
-            {{ $dark ? text-white : 'text-gray-800' }}
+            {{ $dark ? 'text-white' : 'text-gray-800' }}
         " 
         href="{{ $item['href'] }}"
     >
