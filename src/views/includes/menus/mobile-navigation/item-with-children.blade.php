@@ -1,6 +1,8 @@
 <div
     class="
-        w-full flex items-center justify-between text-left w-full border-b rounded-sm focus:outline-none focus:shadow-outline 
+        w-full flex items-center justify-between 
+        text-left border-b rounded-sm
+        focus:outline-none focus:shadow-outline 
         {{ $dark ? ' hover:bg-gray-900 hover:text-gray-100' : 'hover:bg-gray-50 text-gray-900'}}
     "
 >
@@ -27,7 +29,13 @@
             x-on:click.prevent="toggle('{{ $loop->index }}')"
         @endisset
     >
-        <i class="w-4 h-4 {{ $dark ? 'text-gray-50' : 'text-gray-900'}}" data-feather="chevron-down"></i>
+        <i 
+            class="
+                w-4 h-4 
+                {{ $dark ? 'text-gray-50' : 'text-gray-900' }}
+            " 
+            data-feather="chevron-down"
+        ></i>
     </button>
 </div>
 @isset ($item['children'])

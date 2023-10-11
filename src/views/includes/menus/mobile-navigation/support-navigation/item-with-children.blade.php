@@ -1,4 +1,15 @@
-<div class="w-full flex items-center justify-between text-left w-full border-b rounded-sm focus:outline-none focus:shadow-outline {{ $dark ? ' hover:bg-gray-900 hover:text-gray-100' : 'hover:bg-gray-50 text-gray-900'}}">
+<div 
+    class="
+        w-full flex items-center justify-between 
+        text-left border-b rounded-sm 
+        focus:outline-none focus:shadow-outline 
+        {{  
+            $dark 
+                ? 'hover:bg-gray-900 hover:text-gray-100' 
+                : 'hover:bg-gray-50 text-gray-900' 
+        }}
+    "
+>
     <a 
         id="mobile-navbar-dropdown-{!! $loop->index !!}"
         class="inline-flex w-full items-center justify-between py-4 px-3"
@@ -20,9 +31,15 @@
             x-on:keydown.space.prevent="toggle('{{ $loop->index }}')"
             x-on:keydown.enter.prevent="toggle('{{ $loop->index }}')"
             x-on:click.prevent="toggle('{{ $loop->index }}')"
-        @endif
+        @endisset
     >
-        <i class="w-4 h-4 {{ $dark ? 'text-gray-50' : 'text-gray-900'}}" data-feather="chevron-down"></i>
+        <i 
+            class="
+                w-4 h-4 
+                {{ $dark ? 'text-gray-50' : 'text-gray-900'}}
+            " 
+            data-feather="chevron-down"
+        ></i>
     </button>
 </div>
 @isset ($item['children'])
@@ -32,7 +49,7 @@
                 x-show.transition.opacity.duration.300ms="activeSection == '{{ $item['slug'] }}'" 
             @else
                 x-show.transition.opacity.duration.300ms="activeSection == '{{ $loop->index }}'" 
-            @endif
+            @endisset
             aria-labelledby="mobile-navbar-dropdown-{!! $loop->index !!}"
         >
             @foreach ($item['children'] as $child)
@@ -44,8 +61,13 @@
                         &middot;
                     </span>
                     <a 
-                        class="block py-4 pr-4 pl-8 whitespace-no-wrap focus:outline-none focus:shadow-outline 
-                            {{ $dark ? 'text-gray-50 hover:bg-gray-50 hover:text-gray-900' : 'text-gray-900 hover:text-gray-50 hover:bg-gray-900'}}
+                        class="
+                            block py-4 pr-4 pl-8 whitespace-no-wrap 
+                            {{ 
+                                $dark 
+                                    ? 'text-gray-50 hover:bg-gray-50 hover:text-gray-900' 
+                                    : 'text-gray-900 hover:text-gray-50 hover:bg-gray-900'
+                            }}
                         "
                         href="{{ $child['href'] }}"
                         {!! $currentPath == $child['href'] ? 'aria-current="page"' : '' !!}
