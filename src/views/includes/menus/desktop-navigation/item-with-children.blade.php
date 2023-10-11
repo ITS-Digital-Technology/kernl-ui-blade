@@ -10,13 +10,13 @@
 >
     <a
         id="navbar-dropdown-{!! $loop->index !!}"
-        class="inline-flex items-end px-4 py-1 text-sm rounded-sm leading-none text-right
-        @if($dark)
-            text-white
-        @else
-            text-gray-800
-        @endif 
-        hover:bg-gray-100 hover:text-gray-800 focus:outline-none focus:ring focus:ring-blue-400"
+        class="
+            inline-flex items-end px-4 py-1 rounded-sm 
+            text-sm leading-none text-right
+            hover:bg-gray-100 hover:text-gray-800 
+            focus:outline-none focus:ring focus:ring-blue-400
+            {{ $dark ? 'text-white' : 'text-gray-800' }} 
+        "
         href="{{ $item['href'] }}"
         role="button"
         data-toggle="dropdown"
@@ -31,7 +31,7 @@
             @keydown.space.prevent="toggle({{ $loop->index }})"
             @keydown.enter.prevent="toggle({{ $loop->index }})"
             @keydown.arrow-down.prevent="focusNextLink($event, {{ $loop->index }})"
-        @endif
+        @endisset
         {!! $currentPath == $item['href'] ? 'aria-current="page"' : '' !!}
     >
         <!-- When the page or child pages are active, remove `border-transparent` and add `border-gray-900` to the span below -->
@@ -66,13 +66,11 @@
                     'text-gray-800': activeSection === '{{ $loop->index }}'
                 }"
             @endif
-            class="feather feather-chevron-down ml-1 w-8 h-4 mb-1 
-            @if($dark)
-                text-gray-200
-            @else
-                text-gray-800
-            @endif
-            ">
+            class="
+                feather feather-chevron-down ml-1 w-8 h-4 mb-1 
+                {{ $dark ? 'text-gray-200' : 'text-gray-800' }}
+            "
+        >
             <polyline points="6 9 12 15 18 9"></polyline>
         </svg>
     </a>
@@ -87,16 +85,13 @@
                 'flex': activeSection === '{{ $loop->index }}', 
                 'hidden': activeSection !== '{{ $loop->index }}' 
             }"
-        @endif
-            aria-labelledby="navbar-dropdown-{!! $loop->index !!}"
-            class="absolute right-0 top-0 z-10 w-64 mt-8 flex-col items-start justify-start py-2 text-left
-            @if($dark)
-                bg-gray-700
-            @else
-                bg-white
-            @endif
+        @endisset
+        class="
+            absolute right-0 top-0 z-10 w-64 mt-8 flex-col items-start justify-start py-2 text-left
             shadow-sm rounded-sm
+            {{ $dark ? 'bg-gray-700' : 'bg-white' }}
         "
+        aria-labelledby="navbar-dropdown-{!! $loop->index !!}"
         x-cloak
     >
         @foreach ($item['children'] as $child)
@@ -107,13 +102,7 @@
                     block w-full py-1.5 px-3 
                     text-sm transition-colors 
                     focus:outline-none focus:ring focus:ring-blue-500 hover:underline
-                
-                    @if($dark)
-                        text-gray-200
-                        hover:text-gray-50
-                    @else
-                        text-gray-800
-                    @endif
+                    {{ $dark ?'text-gray-200 hover:text-gray-50' : 'text-gray-800' }}
                 "
                 href="{{ $child['href'] }}"
                 @if($loop->last)
