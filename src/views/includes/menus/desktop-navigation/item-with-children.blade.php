@@ -65,7 +65,7 @@
                 :class="{ 
                     'text-gray-800': activeSection === '{{ $loop->index }}'
                 }"
-            @endif
+            @endisset
             class="
                 feather feather-chevron-down ml-1 w-8 h-4 mb-1 
                 {{ $dark ? 'text-gray-200' : 'text-gray-800' }}
