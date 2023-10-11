@@ -18,7 +18,12 @@
         <div class="relative bg-white px-5 py-3 mt-6">
             <a 
                 href="{!! $item['href'] !!}" 
-                class="-m-3 pr-1 flex mb-1 items-start  border-l-3 border-transparent hover:border-red-700 transition ease-in-out duration-150"
+                class="
+                -m-3 mb-1 pr-1 flex  items-start 
+                border-l-3 border-transparent 
+                hover:border-red-700 
+                transition ease-in-out duration-150
+            "
             >
                 <div class="mx-4">
                     <p class="text-base uppercase font-medium text-gray-800 text-sm leading-5">

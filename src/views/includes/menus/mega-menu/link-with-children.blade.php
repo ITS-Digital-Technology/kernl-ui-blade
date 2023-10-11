@@ -11,11 +11,13 @@
             x-on:click.prevent
             aria-expanded="false"
         @endif
-    @endif
+    @endisset
     :class="isOpen ? 'bg-gray-100 text-gray-800' : ''"
     class="
         inline-flex items-center px-4 py-1 text-sm rounded-sm 
-        hover:bg-gray-100 transition duration-200 hover:text-gray-800 hover:cursor-pointer focus:outline-none focus:ring focus:ring-blue-400
+        hover:bg-gray-100 hover:text-gray-800 hover:cursor-pointer 
+        focus:outline-none focus:ring focus:ring-blue-400 
+        transition duration-200 
         {{ $dark ? 'text-white' : 'text-gray-800' }}
     "
 >
@@ -36,5 +38,5 @@
                 />
             </svg>
         @endif
-    @endif
+    @endisset
 </button>
