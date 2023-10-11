@@ -2,13 +2,10 @@
     <a 
         class="
             inline-flex items-center px-4 py-1 text-sm rounded-sm leading-none
-            @if($dark)
-                text-white
-            @else
-                text-gray-800
-            @endif  
-            hover:bg-gray-100 transition duration-200 
-            hover:text-gray-800 focus:outline-none focus:ring focus:ring-blue-400
+            hover:text-gray-800 hover:bg-gray-100 
+            focus:outline-none focus:ring focus:ring-blue-400
+            transition duration-200 
+            {{ $dark ? text-white : 'text-gray-800' }}
         " 
         href="{{ $item['href'] }}"
     >
