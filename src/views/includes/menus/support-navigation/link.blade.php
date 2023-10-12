@@ -6,11 +6,7 @@
             hover:bg-gray-100 hover:text-gray-800 focus:outline-none focus:ring focus:ring-blue-400
             {{ $item['isLast'] ? '' : ' border-r' }}
             {{ $item['isFeatured'] ? ' font-bold' : '' }}
-            @if($dark)
-                text-white
-            @else
-                text-gray-800
-            @endif 
+            {{ $dark ? 'text-white' : 'text-gray-800' }}
         "
         href="{{ $item['href'] }}"
     >

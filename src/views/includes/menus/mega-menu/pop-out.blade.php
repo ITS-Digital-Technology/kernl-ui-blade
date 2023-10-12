@@ -1,7 +1,7 @@
 {{-- Mega Menu - Pop-out --}}
 <div
-    id="pop-out-{!! $loop->index !!}"
-    aria-labelledby="pop-out-btn-{!! $loop->index !!}"
+    id="pop-out-{{ $loop->index }}"
+    aria-labelledby="pop-out-btn-{{ $loop->index }}"
     x-show="isOpen"
     x-transition:enter="transition ease-out duration-200"
     x-transition:enter-start="opacity-0 translate-y-1"
@@ -18,7 +18,12 @@
         <div class="relative bg-white px-5 py-3 mt-6">
             <a 
                 href="{!! $item['href'] !!}" 
-                class="-m-3 pr-1 flex mb-1 items-start  border-l-3 border-transparent hover:border-red-700 transition ease-in-out duration-150"
+                class="
+                    -m-3 mb-1 pr-1 flex items-start 
+                    border-l-3 border-transparent 
+                    hover:border-red-700 
+                    transition ease-in-out duration-150
+                "
             >
                 <div class="mx-4">
                     <p class="text-base uppercase font-medium text-gray-800 text-sm leading-5">
@@ -39,10 +44,20 @@
                             x-on:keydown.tab="isOpen = false"
                         @endif
                         href="{!! $child['href'] !!}" 
-                        class="-m-3 pr-1 flex mb-1 h-5 items-center border-l-3 border-transparent hover:border-red-700 transition ease-in-out duration-150"
+                        class="
+                            -m-3 pr-1 flex mb-1 h-5 items-center 
+                            border-l-3 border-transparent 
+                            hover:border-red-700 
+                            transition ease-in-out duration-150 
+                        "
                     >
                         <div class="mx-4">
-                            <p class="text-base font-medium hover:underline text-gray-800 leading-5 hover:text-black">
+                            <p 
+                                class="
+                                    text-base leading-5 font-medium text-gray-800 
+                                    hover:underline hover:text-black
+                                "
+                            >
                                 {!! $child['text'] !!}
                             </p>
                         </div>
@@ -59,7 +74,11 @@
                 x-on:keydown.tab="isOpen = false"
                 target="{!! $megaMenuCta['target'] !!}" 
                 href="{!! $megaMenuCta['url'] !!}" 
-                class="-m-3 p-1 flow-root rounded-md hover:bg-gray-100 transition ease-in-out duration-150"
+                class="
+                    -m-3 p-1 flow-root rounded-md 
+                    hover:bg-gray-100 
+                    transition ease-in-out duration-150
+                "
             >
                 <span class="flex items-center">
                     <span class="text-base font-medium text-gray-800 leading-5">
@@ -67,7 +86,13 @@
                     </span>
                 
                     @if ($megaMenuAlert)
-                        <span class="ml-3 inline-flex items-center px-3 py-0.5 text-xs font-medium leading-5 bg-gray-cool-300">
+                        <span 
+                            class="
+                                inline-flex items-center ml-3 px-3 py-0.5
+                                text-xs font-medium leading-5 
+                                bg-gray-cool-300
+                            "
+                        >
                             {!! $megaMenuAlert !!}
                         </span>
                     @endif

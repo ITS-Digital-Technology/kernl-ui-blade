@@ -1,6 +1,10 @@
 <div x-ref="desktopNav" class="hidden xl:flex flex-col items-end" x-cloak>
     @if ($supportNav)
-        @include('kernl-ui::menus.support-navigation')
+        @include('kernl-ui::menus.support-navigation', [
+            'supportNav' => $supportNav, 
+            'dark' => $dark, 
+            'currentPath' => $currentPath 
+        ])
     @endif
 
     @if ($links)
@@ -17,13 +21,18 @@
                     <div>
                         @if ($item['children'])
                             @include('kernl-ui::includes.menus.mega-menu.link-with-children', [
-                                'item' => $item
+                                'item' => $item, 
+                                'dark' => $dark, 
+                                'currentPath' => $currentPath 
                             ])
                         @else
                             @include('kernl-ui::includes.menus.mega-menu.link', [
-                                'item' => $item 
+                                'item' => $item, 
+                                'dark' => $dark, 
+                                'currentPath' => $currentPath 
                             ])
                         @endif
+                        
                         @isset($item['children'])
                             @if($item['children'])
                                 @include('kernl-ui::includes.menus.mega-menu.pop-out', [
@@ -33,13 +42,15 @@
                                     'megaMenuAlert' => $megaMenuAlert 
                                 ])
                             @endif
-                        @endif
+                        @endisset
                     </div>
                 </div>
             @endforeach
+            
             @isset($afterLinksDesktop)
                 {{ $afterLinksDesktop }}
-            @endif
+            @endisset
+            
             @if ($search)
                 @include('kernl-ui::includes.headers.search-desktop')
             @endif

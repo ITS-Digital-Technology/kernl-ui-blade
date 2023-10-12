@@ -15,11 +15,7 @@
             focus:outline-none focus:ring focus:ring-blue-400
             {{ $item['isLast'] ? '' : 'border-r' }} 
             {{ $item['isFeatured'] ? 'font-bold' : '' }} 
-            @if($dark)
-                text-white
-            @else
-                text-gray-800
-            @endif
+            {{ $dark ? 'text-white' : 'text-gray-800' }}
         "
         href="{{ $item['href'] }}"
         role="button"
@@ -35,7 +31,7 @@
             @keydown.space.prevent="toggle('{{ $loop->index }}')"
             @keydown.enter.prevent="toggle('{{ $loop->index }}')"
             @keydown.arrow-down.prevent="focusNextLink($event, '{{ $item['slug'] }}')"
-        @endif
+        @endisset
     >
         <!-- When the page or child pages are active, remove `border-transparent` and add `border-gray-900` to the span below -->
         <span 
@@ -43,19 +39,21 @@
                 {{ 
                     isset($item['match']) 
                         && \Illuminate\Support\Str::of($currentPath)->start('/')->is($item['match']) 
-                            ? 'border-gray-900' : 'border-transparent' 
+                            ? 'border-gray-900' 
+                            : 'border-transparent' 
                 }}
             "
         >
             {{ $item['text'] }}
         </span>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-            class="feather feather-chevron-down ml-2 w-4 h-4     
-                @if($dark)
-                    text-gray-200
-                @else
-                    text-gray-800
-                @endif
+            class="
+                feather feather-chevron-down ml-2 w-4 h-4     
+                {{ 
+                    $dark 
+                        ? 'text-gray-200'
+                        : 'text-gray-800'
+                }}
             "
         >
             <polyline points="6 9 12 15 18 9"></polyline>
@@ -72,16 +70,16 @@
                 'flex': activeSection === '{{ $loop->index }}', 
                 'hidden': activeSection !== '{{ $loop->index }}' 
             }"
-        @endif
+        @endisset
         aria-labelledby="navbar-dropdown-1"
         class="
             absolute right-0 top-0 z-10 w-64 mt-6 py-2 flex-col items-start justify-start 
             shadow-sm rounded-sm
-            @if($dark)
-                bg-gray-700
-            @else
-                bg-white
-            @endif
+            {{ 
+                $dark 
+                    ? 'bg-gray-700' 
+                    : 'bg-white' 
+            }}
         "
         x-cloak
     >
@@ -92,13 +90,11 @@
                     text-xs transition-colors 
                     focus:outline-none focus:ring focus:ring-blue-500 
                     block w-full py-2 px-3 
-                    @if($dark)
-                        text-gray-200
-                        hover:text-gray-50
-                    @else
-                        text-gray-800
-                        hover:underline
-                    @endif
+                    {{ 
+                        $dark 
+                            ? 'text-gray-200 hover:text-gray-50'
+                            : 'text-gray-800 hover:underline'
+                    }}
                 "
                 href="{{ $child['href'] }}"
                 @keydown.arrow-up.prevent="focusPreviousLink"
@@ -111,7 +107,8 @@
                         {{ 
                             isset($child['match']) 
                                 && \Illuminate\Support\Str::of($currentPath)->start('/')->is($child['match']) 
-                                ? 'border-transparent' : 'border-gray-600' 
+                                    ? 'border-transparent' 
+                                    : 'border-gray-600' 
                         }}
                     "
                 >
