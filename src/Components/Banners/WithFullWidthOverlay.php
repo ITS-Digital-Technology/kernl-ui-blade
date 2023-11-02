@@ -23,10 +23,9 @@ class WithFullWidthOverlay extends Component
         'yellow' => ['text-black', 'bg-yellow-300'],
     ];
 
-    public function __construct($includeImage = null, $backgroundUrl = null, $height = null, $solidBackgroundColor = 'dark')
+    public function __construct($backgroundUrl = null, $height = null, $solidBackgroundColor = 'dark')
     {
         $this->backgroundUrl = $backgroundUrl;
-        $this->includeImage = $includeImage;
         $this->height = $height;
 
         if (!array_key_exists($this->solidBackgroundColor, $this->colors)) {

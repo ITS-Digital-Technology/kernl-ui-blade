@@ -3,13 +3,12 @@
         {{ $compiledClasses }} 
         bg-center bg-cover bg-no-repeat
     "
-    @if(!$includeImage)
-        {!! 
-            $backgroundUrl 
-                ? ' style="background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(' . $backgroundUrl . ')"' 
-                : ''
-        !!}
-    @endif
+
+    {!! 
+        $backgroundUrl 
+            ? ' style="background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(' . $backgroundUrl . ')"' 
+            : ''
+    !!}
 >
     <div class="container">
         <div class="max-w-2xl text-white">
