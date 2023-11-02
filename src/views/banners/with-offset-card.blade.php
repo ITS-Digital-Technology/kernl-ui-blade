@@ -14,6 +14,6 @@
 
 <div class="py-8 w-full bg-gray-100 block sm:hidden">   
     <div class="container h-full z-2">
-    {{ $slot }}
+        {{ $slot }}
     </div>
 </div>
