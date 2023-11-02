@@ -310,13 +310,20 @@ To use the With Full Width Overlay
 <x-kernl-banners.with-full-width-overlay
     background-url=""
     solid-background-color="red|blue|green|yellow|light|medium-gray|light-gray|dark"
-    include-image=false
     height="half"
 >
     {{-- Banner Content goes here --}}
 </x-kernl-banners.with-full-width-overlay>
 
 ```
+
+##### `x-kernl-banners.with-full-width-overlay` Props
+
+-   `background-url` - URL of background image to be applied. Leave blank to show only a `solid-background-color`.
+-   `solid-background-color` - Solid Background Color.
+    - Options: `red`, `blue`, `green`, `yellow`, `light`, `medium-gray`, `light-gray`, `dark`.
+-   `height` - Set the CSS class height to "half" or full.
+    - Options: `"half"` or leave empty for `"full"` height.
 
 #### Bottom Title
 
