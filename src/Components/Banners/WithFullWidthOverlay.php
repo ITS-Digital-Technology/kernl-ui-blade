@@ -23,16 +23,15 @@ class WithFullWidthOverlay extends Component
         'yellow' => ['text-black', 'bg-yellow-300'],
     ];
 
-    public function __construct($backgroundUrl = null, $height = null, $solidBackgroundColor = 'dark')
+    public function __construct($solidBackgroundColor = 'dark', $backgroundUrl = null, $height = null)
     {
+        $this->solidBackgroundColor = $solidBackgroundColor;
         $this->backgroundUrl = $backgroundUrl;
         $this->height = $height;
 
         if (! array_key_exists($this->solidBackgroundColor, $this->colors)) {
             throw new InvalidArgumentException('`' . $this->solidBackgroundColor . '` is not a supported color option.');
         }
-
-        $this->solidBackgroundColor = $solidBackgroundColor;
     }
 
     public function height()
