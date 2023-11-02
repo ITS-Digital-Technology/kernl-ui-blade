@@ -28,7 +28,7 @@ class WithFullWidthOverlay extends Component
         $this->backgroundUrl = $backgroundUrl;
         $this->height = $height;
 
-        if (!array_key_exists($this->solidBackgroundColor, $this->colors)) {
+        if (! array_key_exists($this->solidBackgroundColor, $this->colors)) {
             throw new InvalidArgumentException('`' . $this->solidBackgroundColor . '` is not a supported color option.');
         }
 
@@ -38,8 +38,8 @@ class WithFullWidthOverlay extends Component
     public function height()
     {
         return (
-            $this->height == 'half' 
-                ? 'py-8 md:py-10 lg:py-16' 
+            $this->height == 'half'
+                ? 'py-8 md:py-10 lg:py-16'
                 : 'py-16 md:py-20 lg:py-32'
         );
     }
