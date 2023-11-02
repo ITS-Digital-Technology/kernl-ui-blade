@@ -3,7 +3,7 @@
         {{ $compiledClasses }} 
         bg-center bg-cover bg-no-repeat
     "
-    @if($includeImage !== false)
+    @if(!$includeImage)
         {!! 
             $backgroundUrl 
                 ? ' style="background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(' . $backgroundUrl . ')"' 

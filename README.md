@@ -294,13 +294,29 @@ To use the With Offset Card Banner component, add the following markup to your B
 <x-kernl-banners.with-offset-card
     background-url=""
 >
-    {{--Card content goes here--}}
+    {{-- Card content goes here --}}
 </x-kernl-banners.with-offset-card>
 ```
 
 ##### `x-kernl-banners.with-offset-card` Props
 
 -   `background-url` - URL of background image to be applied.
+
+#### With Full Width Overlay
+
+To use the With Full Width Overlay
+
+```blade
+<x-kernl-banners.with-full-width-overlay
+    background-url=""
+    solid-background-color="red|blue|green|yellow|light|medium-gray|light-gray|dark"
+    include-image=false
+    height="half"
+>
+    {{-- Banner Content goes here --}}
+</x-kernl-banners.with-full-width-overlay>
+
+```
 
 #### Bottom Title
 
