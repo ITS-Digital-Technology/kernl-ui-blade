@@ -23,6 +23,7 @@ use Northeastern\Blade\Components\Carousel\Base\Slide as CarouselBaseSlide;
 use Northeastern\Blade\Components\Carousel\Split as CarouselSplit;
 use Northeastern\Blade\Components\Carousel\Split\Slide as CarouselSplitSlide;
 use Northeastern\Blade\Components\Footers\Local as FooterLocal;
+use Northeastern\Blade\Components\Footers\Local2 as FooterLocal2;
 use Northeastern\Blade\Components\Footers\PreFooter\Base as PreFooterBase;
 use Northeastern\Blade\Components\Footers\PreFooter\Column as PreFooterColumn;
 use Northeastern\Blade\Components\Heroes\CenteredContent as HeroesCenteredContent;
@@ -65,6 +66,7 @@ class ServiceProvider extends BaseServiceProvider
         TagsOutline::class => 'kernl-tags.outline',
         ModalsBase::class => 'kernl-modals.base',
         FooterLocal::class => 'kernl-footers.local',
+        FooterLocal2::class => 'kernl-footers.lcoal-2',
         PreFooterBase::class => 'kernl-footers.pre-footer.base',
         PreFooterColumn::class => 'kernl-footers.pre-footer.column',
         Scripts::class => 'kernl-scripts',
