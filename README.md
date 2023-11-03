@@ -576,6 +576,7 @@ To use the Local Footer component, add the following markup to your Blade templa
 ##### `x-kernl-footers.local` Props
 
 -   `links` = Array of titles and links for the navigation sections of the footer. Each title can have a `children` key that's an array of more titles/links. These titles/links will be displayed below the parent title.
+    
     Example:
 
     ```php
@@ -606,9 +607,79 @@ To use the Local Footer component, add the following markup to your Blade templa
 -   `twitter-url` - (optional) Twitter URL for the footer. Adding the URL will display the respective social network icon.
 -   `instagram-url` - (optional) Instagram URL for the footer. Adding the URL will display the respective social network icon.
 
+#### Local 2
+
+To use the Local 2 Footer component, add the following markup to your Blade template.
+
+```blade
+<x-kernl-footers.local-2
+    :links="$links"
+    logo-url=""
+    :social-links="$socialLinks"
+>
+    <x-slot name="logo">
+        {{-- Insert SVG logo here --}}
+    </x-slot>
+    <x-slot name="address">
+        {{-- Insert address here --}}
+    </x-slot>
+    <x-slot name="phone">
+        {{-- Insert phone number(s) here --}}
+    </x-slot>
+    <x-slot name="form">
+        {{-- Insert your custom form code --}}
+    </x-slot>
+</x-kernl-footers.local>
+```
+
+##### `x-kernl-footers.local-2` Props
+-   `logo-url` - (optional) URL for the footer logo.
+-   `links` = Array of titles and links for the navigation sections of the footer. Each title can have a `children` key that's an array of more titles/links. These titles/links will be displayed below the parent title.
+    
+    Example:
+
+    ```php
+    $links = [
+        [
+            'text' => 'About',
+            'href' => '/about', // (optional)
+            'children' => [
+                [
+                    'text' => 'Careers',
+                    'href' => '/about/careers',
+                ],
+                [
+                    'text' => 'Staff',
+                    'href' => '/about/staff',
+                ],
+            ],
+        ],
+        // ... More links
+    ];
+    ```
+-   `form` - (optional) Array of values for configuring a form for the footer (e.g., newsletter sign-up). This can also be fully customized in a `<x-slot name="form">` nested component instead.
+    - `action` - Where the form should submit to be processed (e.g., Mailchimp Newsletter URL or other 3rd-party form processor).
+    - `title` - Heading 3 title for the form (e.g., "Subscribe today!") 
+-   `social-links` - (optional) Array of titles and links for the social links section of the footer. These are presented as plain-text with a link.
+    
+    Example:
+
+    ```php
+    $socialLinks = [
+        [
+            'text' => 'Facebook',
+            'href' => 'https://facebook.com/your-social-media-presence',
+        ],
+        // ... More social links
+    ];
+    ```
+
+
 #### PreFooter
 
-To use the PreFooter component, use the following markup to your Blade Template. Note, for a multi-column layout the <x-kernl-footers.pre-footer.column> element will need to be wrapped in a foreach loop, or manually populated.
+To use the PreFooter component, use the following markup to your Blade Template.
+
+> **Note**: for a multi-column layout the `<x-kernl-footers.pre-footer.column>` element will need to be wrapped in a foreach loop, or manually populated.
 
 ```blade
 <x-kernl-footers.pre-footer.base
