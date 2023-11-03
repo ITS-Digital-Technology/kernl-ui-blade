@@ -21,7 +21,7 @@ class Local2 extends Component
 
         $this->logoUrl = $logoUrl;
 
-        $this->socialLinks = $socialLinks
+        $this->socialLinks = $socialLinks;
     }
 
     public function render()
