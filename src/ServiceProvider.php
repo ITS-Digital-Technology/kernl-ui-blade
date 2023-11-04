@@ -66,7 +66,7 @@ class ServiceProvider extends BaseServiceProvider
         TagsOutline::class => 'kernl-tags.outline',
         ModalsBase::class => 'kernl-modals.base',
         FooterLocal::class => 'kernl-footers.local',
-        FooterLocal2::class => 'kernl-footers.lcoal-2',
+        FooterLocal2::class => 'kernl-footers.local-2',
         PreFooterBase::class => 'kernl-footers.pre-footer.base',
         PreFooterColumn::class => 'kernl-footers.pre-footer.column',
         Scripts::class => 'kernl-scripts',
