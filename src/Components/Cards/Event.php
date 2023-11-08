@@ -84,7 +84,7 @@ class Event extends Component
                 return $classes->push('flex', 'flex-col', 'lg:flex-row-reverse');
             })
             ->join(' ')
-            ;
+        ;
     }
 
     public function titleClasses()
@@ -105,7 +105,7 @@ class Event extends Component
                 ]);
             })
             ->join(' ')
-            ;
+        ;
     }
 
     public function bodyClasses()
@@ -126,7 +126,7 @@ class Event extends Component
                 ]);
             })
             ->join(' ')
-            ;
+        ;
     }
 
     public function eventClasses()
@@ -209,7 +209,7 @@ class Event extends Component
                 ]);
             })
             ->join(' ')
-            ;
+        ;
     }
 
     public function footerTextClasses()
@@ -219,7 +219,7 @@ class Event extends Component
                 'text-sm',
             ])
             ->join(' ')
-            ;
+        ;
     }
 
     public function render()

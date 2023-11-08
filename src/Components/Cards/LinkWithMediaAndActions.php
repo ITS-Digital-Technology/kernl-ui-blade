@@ -87,7 +87,7 @@ class LinkWithMediaAndActions extends Component
                 return $classes->push('flex', 'flex-col', 'lg:flex-row-reverse');
             })
             ->join(' ')
-            ;
+        ;
     }
 
     public function titleClasses()
@@ -107,7 +107,7 @@ class LinkWithMediaAndActions extends Component
                 ]);
             })
             ->join(' ')
-            ;
+        ;
     }
 
     public function preHeaderClasses()
@@ -128,7 +128,7 @@ class LinkWithMediaAndActions extends Component
                 ]);
             })
             ->join(' ')
-            ;
+        ;
     }
 
 
@@ -150,7 +150,7 @@ class LinkWithMediaAndActions extends Component
                 ]);
             })
             ->join(' ')
-            ;
+        ;
     }
 
     public function imageOuterImageContainerClasses()
@@ -196,7 +196,7 @@ class LinkWithMediaAndActions extends Component
                 return $classes->push('aspect-w-16', 'aspect-h-9');
             })
             ->join(' ')
-            ;
+        ;
     }
 
     public function render()

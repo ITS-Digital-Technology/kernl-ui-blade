@@ -44,7 +44,7 @@
                 data-toggle="collapse"
                 data-target="#navbarContent"
                 aria-controls="navbarContent"
-                x-bind:aria-expanded="navIsOpen ? 'true' : 'false' ? 'true' : 'false'"
+                x-bind:aria-expanded="navIsOpen ? 'true' : 'false'"
                 aria-label="Toggle navigation"
                 x-on:click="navIsOpen = ! navIsOpen"
             >

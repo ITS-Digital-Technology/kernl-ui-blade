@@ -79,83 +79,85 @@
         </div>
     </li>
 
-    <script>
-        let searchModal = () => {
-            return {
-                open: false,
+    @push('scripts')
+        <script>
+            let searchModal = () => {
+                return {
+                    open: false,
 
-                toggle() {
-                    this.open = !this.open;
+                    toggle() {
+                        this.open = !this.open;
 
-                    if (this.open) {
-                        document.body.classList.add('overflow-hidden');
+                        if (this.open) {
+                            document.body.classList.add('overflow-hidden');
 
-                        this.focusDialog();
-                    } else {
-                        document.body.classList.remove('overflow-hidden');
+                            this.focusDialog();
+                        } else {
+                            document.body.classList.remove('overflow-hidden');
 
-                        this.previouslyFocusedElement.focus();
+                            this.previouslyFocusedElement.focus();
 
-                        if (this.removedTabIndexFromFirstFocusableElement) {
-                            this.firstFocusableElement.setAttribute('tabindex', 0);
-                        }
-                    }
-                },
-
-                focusDialog() {
-                    this.previouslyFocusedElement = document.activeElement;
-
-                    setTimeout(() => {
-                        const focusableElements = this.$refs.dialog.querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex=\'0\']');
-
-                        if (focusableElements.length) {
-                            this.firstFocusableElement = focusableElements[0];
-                            this.lastFocusableElement = focusableElements[focusableElements.length - 1];
-
-                            this.firstFocusableElement.focus();
-
-                            if (this.firstFocusableElement.tabIndex == 0) {
-                                this.firstFocusableElement.removeAttribute('tabindex');
-                                this.removedTabIndexFromFirstFocusableElement = true;
-                            } else {
-                                this.removedTabIndexFromFirstFocusableElement = false;
+                            if (this.removedTabIndexFromFirstFocusableElement) {
+                                this.firstFocusableElement.setAttribute('tabindex', 0);
                             }
                         }
-                    }, 200);
-                },
+                    },
 
-                handleBackwardTab(e) {
-                    if (! this.open) {
-                        return;
-                    }
+                    focusDialog() {
+                        this.previouslyFocusedElement = document.activeElement;
 
-                    if (document.activeElement === this.firstFocusableElement) {
-                        e.preventDefault();
-                    }
-                },
+                        setTimeout(() => {
+                            const focusableElements = this.$refs.dialog.querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex=\'0\']');
 
-                handleForwardTab(e) {
-                    if (! this.open) {
-                        return;
-                    }
+                            if (focusableElements.length) {
+                                this.firstFocusableElement = focusableElements[0];
+                                this.lastFocusableElement = focusableElements[focusableElements.length - 1];
 
-                    if (document.activeElement === this.lastFocusableElement) {
-                        e.preventDefault();
-                        this.firstFocusableElement.focus();
-                    }
-                },
+                                this.firstFocusableElement.focus();
 
-                handleEscape() {
-                    if (this.open) {
-                        this.toggle();
-                    }
-                },
+                                if (this.firstFocusableElement.tabIndex == 0) {
+                                    this.firstFocusableElement.removeAttribute('tabindex');
+                                    this.removedTabIndexFromFirstFocusableElement = true;
+                                } else {
+                                    this.removedTabIndexFromFirstFocusableElement = false;
+                                }
+                            }
+                        }, 200);
+                    },
 
-                previouslyFocusedElement: null,
-                firstFocusableElement: null,
-                lastFocusableEl: null,
-                removedTabIndexFromFirstFocusableElement: false,
+                    handleBackwardTab(e) {
+                        if (! this.open) {
+                            return;
+                        }
+
+                        if (document.activeElement === this.firstFocusableElement) {
+                            e.preventDefault();
+                        }
+                    },
+
+                    handleForwardTab(e) {
+                        if (! this.open) {
+                            return;
+                        }
+
+                        if (document.activeElement === this.lastFocusableElement) {
+                            e.preventDefault();
+                            this.firstFocusableElement.focus();
+                        }
+                    },
+
+                    handleEscape() {
+                        if (this.open) {
+                            this.toggle();
+                        }
+                    },
+
+                    previouslyFocusedElement: null,
+                    firstFocusableElement: null,
+                    lastFocusableEl: null,
+                    removedTabIndexFromFirstFocusableElement: false,
+                }
             }
-        }
-    </script>
+        </script>
+    @endpush
 @endif
